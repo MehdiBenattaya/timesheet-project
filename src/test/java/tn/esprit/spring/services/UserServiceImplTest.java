@@ -27,6 +27,17 @@ class UserServiceImplMockTest {
 
     @Test
     public void testAddUser() {
+
+
+// Récupérer la variable d'environnement
+String envVar = System.getenv("TIMESHEET_TESTS_FAIL");
+
+// Si la variable d'environnement est définie sur "True", échouer volontairement le test
+if ("True".equalsIgnoreCase(envVar)) {
+    fail("Les tests échouent volontairement car TIMESHEET_TESTS_FAIL est défini sur True.");
+}
+
+
         // Préparation des données de test
         Role role = Role.CHEF_DEPARTEMENT;  // Exemple de rôle
         Date dateNaissance = new Date();  // Date actuelle pour la naissance
